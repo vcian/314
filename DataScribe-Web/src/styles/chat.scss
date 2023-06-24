@@ -1,0 +1,80 @@
+@import "./variable";
+
+.chat-main-section {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    .chat-sidebar {
+        width: 350px;
+        height: 100%;
+        background-color: $sidebar-color;
+        border-right: 1px solid $border-color;
+        .sidebar-link {
+            display: flex;
+            padding: 10px 20px;
+            align-items: center;
+            border-radius: 10px;
+            cursor: pointer;
+            &:hover {
+                background-color: $sidebar-color-hover;
+            }
+        }
+        .sidebar-link-active {
+            background-color: $sidebar-color-hover;
+        }
+    }
+    .chat-section {
+        width: 100%;
+        .chat-header {
+            height: 70px;
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 40px;
+            background-color: $white-color;
+            border-bottom: 1px solid $border-color;
+            img {
+                width: 50px;
+                height: 50px;
+                border: 1px solid $primary-color;
+                border-radius: 50%;
+                overflow: hidden;
+                object-fit: cover;
+            }
+        }
+        .chat-body {
+            height: calc(100% - 70px);
+            background-color: $white-color;
+            
+            .chat-body-output-main {
+                height: 90%;
+                max-height: 90%;
+                overflow: auto;
+            }
+            .chat-body-output {
+                height: 100%;
+                width: 1200px;
+                padding: 10px 0;
+                max-width: 1200px;
+            }
+            .chat-body-input{
+                height: 10%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                input{
+                    max-width: 1200px;
+                    border: 1px solid $primary-color;
+                }
+            }
+        }
+    }
+}
+
+.profile-img {
+    width: 50px;
+    height: 50px;
+    border: 1px solid $primary-color;
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: cover;
+}
