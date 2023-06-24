@@ -6,8 +6,8 @@
 
 package com.app.ui
 
+import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.NavController
@@ -37,6 +37,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         setSelectedTheme()
 
         setupNavigation()
+
+        startBubbleService()
     }
 
     private fun setSelectedTheme() {
@@ -59,12 +61,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                /*R.id.accountFragment -> {
+                R.id.launchFragment -> {
                     hideBottomNav()
                 }
                 else -> {
                     showBottomNav()
-                }*/
+                }
             }
         }
     }
@@ -79,4 +81,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     }
 
 
+    private fun startBubbleService() {
+        //val bubbleIntent = Intent(this, BubbleService::class.java)
+        //startService(bubbleIntent)
+    }
 }

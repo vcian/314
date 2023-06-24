@@ -19,18 +19,19 @@
         app:navGraph="@navigation/default_nav_graph" />
 
     <View
-        app:layout_constraintBottom_toTopOf="@+id/mBottomNavigationView"
         android:layout_width="match_parent"
+        android:layout_height="0.5dp"
         android:background="@color/toolbar_line"
-        android:layout_height="0.5dp" />
+        app:layout_constraintBottom_toTopOf="@+id/mBottomNavigationView" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/mBottomNavigationView"
         style="@style/Widget.BottomNavigationView"
-        android:paddingTop="2dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:paddingTop="2dp"
+        android:visibility="gone"
         app:elevation="2dp"
         app:itemRippleColor="@color/rippleColor"
         app:labelVisibilityMode="selected"
@@ -39,7 +40,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragNavHost"
-        app:menu="@menu/home_navigation_menu" />
+        app:menu="@menu/home_navigation_menu"
+        tools:visibility="visible" />
 
     <!--app:itemIconTint="@color/bottom_nav_color"
     app:itemTextColor="@color/bottom_nav_color"-->

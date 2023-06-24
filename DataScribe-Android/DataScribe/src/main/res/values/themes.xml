@@ -202,4 +202,15 @@
         <item name="cornerSize">16dp</item>
     </style>
 
+    <style name="default_bubble_style">
+        <item name="android:windowEnterAnimation">@anim/fadein</item>
+        <item name="android:windowExitAnimation">@anim/fadeout</item>
+    </style>
+
+
+    <style name="default_close_bubble_style">
+        <item name="android:windowEnterAnimation">@anim/enter</item>
+        <item name="android:windowExitAnimation">@anim/exit</item>
+    </style>
+
 </resources>

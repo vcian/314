@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#2196F3</color>
-    <color name="colorPrimaryVariant">#2196F3</color>
-    <color name="colorOnPrimary">#2196F3</color>
+    <color name="colorPrimary">#0d89ff</color>
+    <color name="colorPrimaryVariant">#0d89ff</color>
+    <color name="colorOnPrimary">#0d89ff</color>
 
-    <color name="colorSecondary">#2196F3</color>
-    <color name="colorSecondaryVariant">#2196F3</color>
-    <color name="colorOnSecondary">#2196F3</color>
+    <color name="colorSecondary">#0d89ff</color>
+    <color name="colorSecondaryVariant">#0d89ff</color>
+    <color name="colorOnSecondary">#0d89ff</color>
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="rippleColor">#502196F3</color>
+    <color name="rippleColor">#500d89ff</color>
     <color name="background">#F3F4F5</color>
     <color name="icon_background">#F3F4F5</color>
     <color name="item_background">#F3F4F5</color>
@@ -26,9 +26,9 @@
     <color name="mainColor1">@color/colorPrimary</color>
     <color name="mainColor2">@color/colorSecondary</color>
 
-    <color name="action_color">#2196F3</color>
+    <color name="action_color">#0d89ff</color>
 
-    <color name="text_main">#2196F3</color>
+    <color name="text_main">#0d89ff</color>
     <color name="text_black">#000000</color>
     <color name="text_black2">#14121F</color>
     <color name="text_dark">#182442</color>
