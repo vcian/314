@@ -21,6 +21,7 @@
         }
         .sidebar-link-active {
             background-color: $sidebar-color-hover;
+            color: $primary-color;
         }
     }
     .chat-section {
@@ -67,6 +68,15 @@
                 }
             }
         }
+    }
+}
+
+.chat-send{
+    .chat-send-img{
+        width: 80px;
+    }
+    .chat-send-que{
+        width: calc(100% - 80px);
     }
 }
 

@@ -14,4 +14,7 @@ export interface IRootReducer {
   loading: {
     isLoading: boolean;
   };
+  userData: {
+    user: any;
+  };
 }

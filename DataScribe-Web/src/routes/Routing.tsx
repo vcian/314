@@ -22,7 +22,7 @@ export const PrivateRoutesArray: RouteObject[] = [
         path: "/create-workspace",
         element: <WorkSpace />
       },
-      { path: "*", element: <Navigate to={"/"} /> }
+      { path: "*", element: <Navigate to={"/chat"} /> }
     ]
   }
 ];
@@ -34,7 +34,7 @@ export const PublicRoutesArray: RouteObject[] = [
       { index: true, element: <Home /> },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Login /> },
-      { path: "*", element: <Navigate to={"/"} /> }
+      { path: "*", element: <Navigate to={"/login"} /> }
     ]
   }
 ];

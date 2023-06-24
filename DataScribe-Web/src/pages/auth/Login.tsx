@@ -1,9 +1,17 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button, Input, Label } from "reactstrap";
+import * as Yup from "yup";
+import { loginApi, registerApi } from "../../actions/action";
 import { images } from "../../assets/images";
+import { cookieKeys, localStorageKeys } from "../../constants/constants";
 import { onLogIn } from "../../store/AuthReducer";
+import { setLoading } from "../../store/LoadingReducer";
+import { setUserData } from "../../store/UserReducer";
 import "../../styles/login.scss";
+import { setEncryptedCookie, setEncryptedLocalStorage, toastSuccess } from "../../utils/CommonFuncation";
 
 const Login = () => {
   const registerPath = "/register";
@@ -11,15 +19,59 @@ const Login = () => {
   const dispatch = useDispatch();
   const location = useLocation();
 
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: ""
+    },
+    validationSchema: Yup.object().shape({
+      email: Yup.string().required().email(),
+      password: Yup.string().required()
+    }),
+    onSubmit: (values) => {
+      dispatch(setLoading(true));
+      if (registerPath === location?.pathname) {
+        registerApi(values).then((res) => {
+          if (res.status === 200) {
+            // @ts-ignore
+            handleReset();
+            handleRedirect("/login");
+            toastSuccess(res.message);
+          }
+          dispatch(setLoading(false));
+        });
+      } else {
+        loginApi(values).then((res) => {
+          toastSuccess(res.message);
+          handleLogin(res.data);
+          dispatch(setUserData(res.data));
+          dispatch(setLoading(false));
+        });
+      }
+    }
+  });
+
   const handleRedirect = (url: string) => {
     navigate(url);
   };
 
-  const handleLogin = () => {
+  const handleLogin = (data: any) => {
+    // profileApi().then((res) => {
+    //   if (res.status === 200) {
+    //     console.log(res);
+    //   }
+    // });
+    const userData = {
+      token: data?.token,
+      userId: data?.id
+    };
+    // for user auth on beta and live
+    setEncryptedCookie(cookieKeys.cookieUser, userData);
+    setEncryptedLocalStorage(localStorageKeys.userToken, data);
     dispatch(onLogIn());
     handleRedirect("/chat");
   };
-
+  const { values, errors, handleBlur, touched, handleChange, handleSubmit, handleReset } = formik;
   return (
     <div className="login-section">
       <div className="login-main p-40 d-flex flex-column w-100">
@@ -35,26 +87,48 @@ const Login = () => {
             <p className="c-secondary">{location.pathname === registerPath ? "Register" : "Login"} to DataScribe</p>
             <div className="w-100">
               <Label className="c-black">Email</Label>
-              <Input className="p-10" placeholder="Email" />
+              <Input className="p-10" onBlur={handleBlur} invalid={Boolean(touched?.email && errors?.email)} value={values.email} onChange={handleChange} name="email" placeholder="Email" />
+              {touched?.email && errors?.email && <p className="text-danger mb-0">{errors?.email}</p>}
             </div>
             <div className="mt-20 w-100">
               <Label className="c-black">Password</Label>
-              <Input className="p-10" placeholder="Password" />
+              <Input
+                className="p-10"
+                onBlur={handleBlur}
+                invalid={Boolean(touched?.password && errors?.password)}
+                placeholder="Password"
+                value={values.password}
+                onChange={handleChange}
+                name="password"
+              />
+              {touched?.password && errors?.password && <p className="text-danger mb-0">{errors?.password}</p>}
             </div>
-            <Button className="mt-20 w-100 btn-primary" onClick={handleLogin}>
+            <Button className="mt-20 w-100 btn-primary" onClick={() => handleSubmit()}>
               {location.pathname === registerPath ? "Register" : "Login"}
             </Button>
             {location.pathname === registerPath ? (
               <p className="c-secondary mt-20">
                 You do have an account yet?{" "}
-                <span className="fw-bold c-primary cursor-pointer" onClick={() => handleRedirect("/login")}>
+                <span
+                  className="fw-bold c-primary cursor-pointer"
+                  onClick={() => {
+                    // @ts-ignore
+                    handleReset();
+                    handleRedirect("/login");
+                  }}>
                   Sing in
                 </span>
               </p>
             ) : (
               <p className="c-secondary mt-20">
                 You don't have an account yet?{" "}
-                <span className="fw-bold c-primary cursor-pointer" onClick={() => handleRedirect("/register")}>
+                <span
+                  className="fw-bold c-primary cursor-pointer"
+                  onClick={() => {
+                    // @ts-ignore
+                    handleReset();
+                    handleRedirect("/register");
+                  }}>
                   Sing up
                 </span>
               </p>
