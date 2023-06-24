@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.app.ui.MainActivity">
+
+    <fragment
+        android:id="@+id/fragNavHost"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/mBottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/default_nav_graph" />
+
+    <View
+        app:layout_constraintBottom_toTopOf="@+id/mBottomNavigationView"
+        android:layout_width="match_parent"
+        android:background="@color/toolbar_line"
+        android:layout_height="0.5dp" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/mBottomNavigationView"
+        style="@style/Widget.BottomNavigationView"
+        android:paddingTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:elevation="2dp"
+        app:itemRippleColor="@color/rippleColor"
+        app:labelVisibilityMode="selected"
+        app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragNavHost"
+        app:menu="@menu/home_navigation_menu" />
+
+    <!--app:itemIconTint="@color/bottom_nav_color"
+    app:itemTextColor="@color/bottom_nav_color"-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

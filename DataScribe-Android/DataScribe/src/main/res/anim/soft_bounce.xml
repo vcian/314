@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2021.10. 7
+  ~ All right reserved edeXa AG 2022
+  ~ Created by Haresh Vaghela
+  -->
+
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <scale
+        android:duration="50"
+        android:fromXScale="1"
+        android:fromYScale="1"
+        android:interpolator="@android:anim/bounce_interpolator"
+        android:pivotX="30%"
+        android:pivotY="30%"
+        android:repeatCount="0"
+        android:toXScale="1.05"
+        android:toYScale="1.05" />
+</set>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <dimen name="text_size_9sp">9sp</dimen>
+    <dimen name="text_size_10sp">10sp</dimen>
+    <dimen name="text_size_12sp">12sp</dimen>
+    <dimen name="text_size_13sp">13sp</dimen>
+    <dimen name="text_size_14sp">14sp</dimen>
+    <dimen name="text_size_16sp">16sp</dimen>
+    <dimen name="text_size_18sp">18sp</dimen>
+    <dimen name="text_size_20sp">20sp</dimen>
+    <dimen name="text_size_22sp">22sp</dimen>
+    <dimen name="text_size_24sp">24sp</dimen>
+
+    <dimen name="corner_radius_very_small">4dp</dimen>
+    <dimen name="corner_radius_small">9dp</dimen>
+    <dimen name="corner_radius_sheet">20dp</dimen>
+    <dimen name="corner_radius_sheet_inner">11dp</dimen>
+
+    <dimen name="text_line_height_bubble">18sp</dimen>
+    <dimen name="text_line_height_normal">20sp</dimen>
+    <dimen name="text_line_height_large">28sp</dimen>
+
+    <dimen name="min_button_height">48dp</dimen>
+
+</resources>
