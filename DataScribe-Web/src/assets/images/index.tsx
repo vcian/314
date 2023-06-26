@@ -15,14 +15,17 @@ import logoutIcon from "./logout.svg";
 import sendIcon from "./send.svg";
 // @ts-ignore
 import newWorkspaceIcon from "./new-workspace.svg";
+// @ts-ignore
+import loading from "./loading.gif";
 
 export const images = {
-  logo: logoImages,
-  loginBg,
-  user,
-  perviousIcon,
-  chatIcon,
-  logoutIcon,
-  sendIcon,
-  newWorkspaceIcon
+	logo: logoImages,
+	loginBg,
+	user,
+	perviousIcon,
+	chatIcon,
+	logoutIcon,
+	sendIcon,
+	newWorkspaceIcon,
+	loading
 };
