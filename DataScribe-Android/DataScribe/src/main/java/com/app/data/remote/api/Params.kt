@@ -11,5 +11,6 @@ object Params {
 
     const val status = "status"
     const val message = "message"
-    const val deviceId = "deviceId"
+    const val email = "email"
+    const val password = "password"
 }

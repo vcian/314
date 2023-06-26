@@ -10,4 +10,6 @@ interface PreferencesHelper {
 
     fun provideToken(): String
 
+    fun storeToken(token: String)
+
 }

@@ -24,6 +24,7 @@ open class AppPreferencesHelper @Inject constructor(@ApplicationContext private 
         const val PREFS_FILE = "prefs_file_app"
         const val PREFS_FILE_PUBLIC = "prefs_file_public_app"
         const val pref_key_theme = "pref_theme"
+        const val pref_key_token = "pref_key_token"
     }
 
     @Singleton
@@ -115,7 +116,7 @@ open class AppPreferencesHelper @Inject constructor(@ApplicationContext private 
     }
 
     override fun provideToken(): String {
-        return "token"
+        return retrievePublicData(pref_key_token)
     }
 
 
@@ -130,4 +131,7 @@ open class AppPreferencesHelper @Inject constructor(@ApplicationContext private 
         return themeType.ifEmpty { ThemeType.light }
     }
 
+    override fun storeToken(token: String){
+        storePrivateData(pref_key_token,token)
+    }
 }

@@ -26,6 +26,16 @@
             app:popUpTo="@id/launchFragment"
             app:popUpToInclusive="true" />
 
+        <action
+            android:id="@+id/action_launchFragment_to_authFragment"
+            app:destination="@id/authFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/launchFragment"
+            app:popUpToInclusive="true" />
+
     </fragment>
 
     <fragment
@@ -39,5 +49,11 @@
         android:name="com.app.ui.dashboard.account.AccountFragment"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
+
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.app.ui.auth.AuthFragment"
+        android:label="fragment_auth"
+        tools:layout="@layout/fragment_auth" />
 
 </navigation>
